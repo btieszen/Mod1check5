@@ -1,0 +1,11 @@
+{
+    "header":"Your Todo List",
+    "_header.comment":"This is the header of the todo list.",
+    "pivots":{
+        "tasksTab":"Tasks",
+        "taskFormTab":"TaskForm",
+
+        "completedTaskForm":"Completed"
+    },
+    "deleteConfirm":"Are you sure you want to delete this task?"
+}
