@@ -1,11 +1,6 @@
-import { useState } from 'react'
-import { useEffect } from 'react'
-import HomeStyle from './Todo/Home.style'
-
 
 //App.tsx
 import React from "react";
-//import ProfilePage from "./pages/ProfilePage";
 import { Route, Routes } from "react-router-dom";
 import CallbackPage from "./AUTHO/CallbackPage";
 import ProtectedPage from "./pages/ProtectedPage";

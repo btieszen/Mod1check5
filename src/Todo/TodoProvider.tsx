@@ -1,5 +1,5 @@
 import  { createContext,useReducer } from "react";
-import { ActionTypeEnum, IDeleteAction, IReducerAction, ITask, ITodoContext, ITodoState } from "./Types";
+import { ActionTypeEnum, IDeleteAction, IReducerAction, ITask, ITodoContext, ITodoState, IUpdateAction } from "./Types";
 import { clone } from "../utility";
 
 export const TodoContext = createContext<ITodoContext>({
@@ -23,7 +23,14 @@ const deleteTaskAction = (state: ITodoState,action:IDeleteAction)=>{
     return filteredData;
     };
 
-
+const updateTaskAction = (state: ITodoState,action: IUpdateAction) =>{
+    const cloneActiveTasks:ITask[] = clone(state.activeTasks);
+    const index =cloneActiveTasks.findIndex((x) =>x.id === action.data.id);
+    if (index>=0){
+        cloneActiveTasks[index]= action.data;
+    }
+    return cloneActiveTasks;
+}
 
     const reducer = (state: ITodoState, action: IReducerAction) => {
     switch (action.type) {
@@ -31,6 +38,8 @@ const deleteTaskAction = (state: ITodoState,action:IDeleteAction)=>{
             return { ...state, activeTasks: addTaskAction(state, action) };
         case ActionTypeEnum.Delete:
             return { ...state, activeTasks: deleteTaskAction(state,action) };
+        case ActionTypeEnum.Update:
+            return {...state,activeTasks: updateTaskAction(state,action)};
       
     }
     return {...state};
@@ -41,17 +50,21 @@ const TodoProvider = (props: Props) => {
         {
             id: "1",
             title: "Task 1",
+            description:"Wake Kids up for School",
             isFav: true
+            
         },
         {
             id: "2",
             title: "Task2",
-            isFav: false
+            description:"Take Kids to School",
+            isFav: true
         },
         {
             id: "3",
             title: "Task3",
-            isFav: false
+            description:"Go to work",
+            isFav: true
         }
     ];
 

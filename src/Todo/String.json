@@ -3,9 +3,11 @@
     "_header.comment":"This is the header of the todo list.",
     "pivots":{
         "tasksTab":"Tasks",
-        "taskFormTab":"TaskForm",
+        "taskFormTab":"New task",
 
         "completedTaskForm":"Completed"
     },
-    "deleteConfirm":"Are you sure you want to delete this task?"
+    "deleteConfirm":"Are you sure you want to delete this task?",
+    "addTaskBtn":"Add Task",
+    "updateTaskBtn": "Update Task"
 }

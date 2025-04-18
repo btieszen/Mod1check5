@@ -26,26 +26,27 @@ const onRenderCell = (task: ITask) => {
         setEditTask(id);
     }
 
-   return(
-     <Stack horizontal key={task.id} className={TaskListStyle.taskItem}>
-        <Stack horizontal style={{width:"85%"}}>
-        <Checkbox/>
-        {task.title}
+    return (
+        <Stack horizontal key={task.id} className={TaskListStyle.taskItem}>
+            <Stack horizontal style={{width:"85%"}}>
+                <Checkbox/>
+                {task.title}
+            </Stack>
+
+            <Stack horizontal style={{width:"15%"}}>
+                <TaskDescription task={task}/>
+                 
+                <FontIcon iconName="EditNote" className={TaskListStyle.iconStyle}
+                onClick={() => {
+                  onTaskDelete(task.id)
+                    onEditTaskClick(task.id);
+                }}/>
+
+                <FontIcon iconName="Delete" className={TaskListStyle.iconStyle}
+                     onClick={() => onTaskDelete(task.id)}
+                   />
+            </Stack>
         </Stack>
-
-        <Stack horizontal style={{width:"15%"}}>
-       <TaskDescription task={task}/>
-     
-        <FontIcon iconName="EditNote" className={TaskListStyle.iconStyle}
-        onClick={() => {
-            onEditTaskClick(task.id);
-        }}/>
-
-        <FontIcon iconName="Delete" className={TaskListStyle.iconStyle}
-        onClick={() => onTaskDelete(task.id)}
-        />
-     </Stack>
-     </Stack>
    );
 };
 

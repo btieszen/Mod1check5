@@ -23,10 +23,11 @@ export interface ITodoState {
 export enum ActionTypeEnum{
     Add,
     Delete,
+    Update
    
 }
 
-export type IReducerAction = IAddAction | IDeleteAction  
+export type IReducerAction = IAddAction | IDeleteAction  |IUpdateAction
 
 export interface IAddAction{
     type:ActionTypeEnum.Add;
@@ -39,3 +40,7 @@ export interface IDeleteAction{
     data:{id:string};
 }
 
+export interface IUpdateAction{
+    type:ActionTypeEnum.Update,
+    data:ITask;
+}

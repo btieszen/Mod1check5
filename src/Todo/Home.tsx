@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import {  useState } from "react";
 import HomeStyle from "./Home.style";
 import { Label, Pivot, PivotItem, Stack } from "@fluentui/react";
 import { ITask, PivotKeysEnum } from "./Types";
@@ -7,7 +7,6 @@ import TaskList from "./List/TaskList";
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
 import TodoProvider from "./TodoProvider";
 import TaskForm from "./List/TaskForm/TaskForm";
-
 initializeIcons();
 
 
@@ -41,8 +40,9 @@ const editTask =(id:string)=>{
           headerText={TodoString.pivots.tasksTab}
           itemKey={PivotKeysEnum.Tasks}
         >
+         
           <TaskList setEditTask={editTask}/>
-        </PivotItem>
+</PivotItem>
         <PivotItem
           headerText={TodoString.pivots.taskFormTab}
           itemKey={PivotKeysEnum.TaskForm}
